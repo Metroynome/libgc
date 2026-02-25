@@ -1,0 +1,6 @@
+EE_LIB_NAME = libgcntsc.a
+EE_DEFS = -DGC_NTSC
+
+include ${CURDIR}/Makefile.defs
+include $(PS2SDK)/samples/Makefile.pref
+include ${CURDIR}/Makefile.eeglobal
