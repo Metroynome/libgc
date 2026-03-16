@@ -1,0 +1,6 @@
+EE_LIB_NAME = libgcpal.a
+EE_DEFS = -DGC_PAL -DRAC2_PAL
+
+include ${CURDIR}/Makefile.defs
+include $(PS2SDK)/samples/Makefile.pref
+include ${CURDIR}/Makefile.eeglobal

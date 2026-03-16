@@ -1,0 +1,6 @@
+EE_LIB_NAME = libgcntscu.a
+EE_DEFS = -DGC_NTSCU -DRAC2_NTSCU
+
+include ${CURDIR}/Makefile.defs
+include $(PS2SDK)/samples/Makefile.pref
+include ${CURDIR}/Makefile.eeglobal
