@@ -16,7 +16,7 @@ extern void playerPadUpdate(void);
  */
 void gcPreUpdate(void)
 {
-    
+		
 }
 
 /*
@@ -30,6 +30,6 @@ void gcPreUpdate(void)
  */
 void gcPostUpdate(void)
 {
-  padUpdate();
-  playerPadUpdate();
+	padUpdate();
+	playerPadUpdate();
 }

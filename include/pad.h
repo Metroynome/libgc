@@ -22,9 +22,16 @@
 #include <tamtypes.h>
 #include "types.h"
 
-
+#ifdef RAC2_PAL
+#define P1_PAD                              ((PAD*)0x00138200)
+#define P2_PAD                              ((PAD*)0x00138580)
+#elif RAC2_NTSCJ
 #define P1_PAD                              ((PAD*)0x00138180)
 #define P2_PAD                              ((PAD*)0x00138500)
+#elif RAC2_NTSCU
+#define P1_PAD                              ((PAD*)0x00138180)
+#define P2_PAD                              ((PAD*)0x00138500)
+#endif
 
 #define REVERSE_U16(bytes) (bytes >> 8) | (bytes << 8) 
 
