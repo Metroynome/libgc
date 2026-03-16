@@ -169,7 +169,7 @@ typedef struct Player { // 0x2540
 /* 0x0040 */ MATRIX invMtx;
 /* 0x0080 */ VECTOR pos;
 /* 0x0090 */ VECTOR rot;
-/* 0x00a0 */ char unk_00a0[0xb98]
+/* 0x00a0 */ char unk_00a0[0xb98];
 /* 0x0c18 */ Moby *pMoby;
 /* 0x0c1c */ char unk_0c1c[0x1924];
 } Player;
