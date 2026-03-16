@@ -8,7 +8,7 @@ all: clean
 	
 clean:
 	$(MAKE) -f ${CURDIR}/Makefile.ntscu clean
-	$(MAKE) -f ${CURDIR}/Makefile.pal cleann
+	$(MAKE) -f ${CURDIR}/Makefile.pal clean
 	$(MAKE) -f ${CURDIR}/Makefile.ntscj clean
 	rm -f -r lib/
 
