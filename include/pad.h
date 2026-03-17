@@ -28,7 +28,7 @@
 #elif RAC2_NTSCJ
 #define P1_PAD                              ((PAD*)0x00138180)
 #define P2_PAD                              ((PAD*)0x00138500)
-#elif RAC2_NTSCU
+#else
 #define P1_PAD                              ((PAD*)0x00138180)
 #define P2_PAD                              ((PAD*)0x00138500)
 #endif

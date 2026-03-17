@@ -1,7 +1,8 @@
 
 #define GAME_ACTIVE                         (0x00241BD0)
 #define SCENE_LOADED                        (0x002459C8)
-#define GAME_MAP_ID                         (0x001F8528)
+// currently only for NTSCU
+#define GAME_MAP_ID                         (0x001507E0)
 
 // fixed address function
 #define FUNCTION(name, address) \

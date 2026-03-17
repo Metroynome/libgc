@@ -8,6 +8,8 @@
 #include "math.h"
 #include "moby.h"
 
+#define PLAYER_1_STRUCT		((Player*)0x00189e20)
+
 typedef enum PlayerState {
 	PLAYER_STATE_IDLE = 0,
 	PLAYER_STATE_LOOK = 1,
@@ -163,7 +165,10 @@ typedef enum PlayerType {
 	PLAYER_TYPE_CNT = 38
 } PlayerType;
 
-// start: 00189e20
+/* start:
+Aranos: 0x00189e20
+Museum: 0x00189e20
+*/
 typedef struct Player { // 0x2540
 /* 0x0000 */ MATRIX mtx;
 /* 0x0040 */ MATRIX invMtx;
