@@ -176,7 +176,26 @@ typedef struct Player { // 0x2540
 /* 0x0090 */ VECTOR rot;
 /* 0x00a0 */ char unk_00a0[0xb98];
 /* 0x0c18 */ Moby *pMoby;
-/* 0x0c1c */ char unk_0c1c[0x1924];
+/* 0x0c1c */ char unk_0c1c[0x1674];
+/* 0x2290 */ Moby *unk_Moby_2290;
+/* 0x2294 */ int state;
+/* 0x2298 */ int prevState;
+/* 0x229c */ int prevprevState;
+/* 0x22a0 */ int state_4;
+/* 0x22a4 */ int state_5;
+/* 0x22a8 */ int state_6;
+/* 0x22ac */ int state_7;
+/* 0x22b0 */ int state_8;
+/* 0x22b4 */ char unk_22b4[0xd];
+/* 0x22c1 */ bool resetLevel;
+/* 0x22c2 */ char unk_22c2[0x20a];
+/* 0x24cc */ int hitpoints;
+/* 0x24d0 */ char unk_24d0[0x18];
+/* 0x24f8 */ u16 timer_24f8;
+/* 0x24fa */ u16 timer_24fa;
+/* 0x24d0 */ char unk_24d0[0x68];
+/* 0x2538 */ int forceGadgetSwitch;
+/* 0x253c */ int unk_253c;
 } Player;
 
 #endif

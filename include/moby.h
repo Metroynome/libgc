@@ -10,15 +10,18 @@ enum MobyIds {
 };
 
 typedef struct Moby { // 0x100
-/* 0x000 */ VECTOR bSphere;
-/* 0x010 */ VECTOR position;
-/* 0x020 */ char state;
-/* 0x021 */ u8 group;
-/* 0x022 */ char mClass;
-/* 0x023 */ u8 opacity;
-/* 0x024 */ struct MobyClass* pClass;
-/* 0x028 */ struct Moby * pChain;
-/* 0x02c */ float scale;
+/* 0x00 */ VECTOR bSphere;
+/* 0x10 */ VECTOR position;
+/* 0x20 */ char state;
+/* 0x21 */ u8 group;
+/* 0x22 */ char mClass;
+/* 0x23 */ u8 opacity;
+/* 0x24 */ struct MobyClass *pClass;
+/* 0x28 */ struct Moby *pChain;
+/* 0x2c */ float scale;
+/* 0x30 */ char unk_30[0x90];
+/* 0xc0 */ mtx3 rotMtx;
+/* 0xf0 */ vec4 rot;
 } Moby;
 
 struct MobyClass { // 0x50
