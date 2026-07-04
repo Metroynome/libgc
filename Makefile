@@ -1,6 +1,8 @@
 all: clean
 	$(MAKE) -f ${CURDIR}/Makefile.ntscu
 	$(MAKE) -f ${CURDIR}/Makefile.ntscu clean
+	$(MAKE) -f ${CURDIR}/Makefile.v200.ntscu
+	$(MAKE) -f ${CURDIR}/Makefile.v200.ntscu clean
 	$(MAKE) -f ${CURDIR}/Makefile.pal
 	$(MAKE) -f ${CURDIR}/Makefile.pal clean
 	$(MAKE) -f ${CURDIR}/Makefile.ntscj
@@ -8,6 +10,7 @@ all: clean
 	
 clean:
 	$(MAKE) -f ${CURDIR}/Makefile.ntscu clean
+	$(MAKE) -f ${CURDIR}/Makefile.v200.ntscu clean
 	$(MAKE) -f ${CURDIR}/Makefile.pal clean
 	$(MAKE) -f ${CURDIR}/Makefile.ntscj clean
 	rm -f -r lib/
@@ -15,6 +18,8 @@ clean:
 install: clean
 	$(MAKE) -f ${CURDIR}/Makefile.ntscu install
 	$(MAKE) -f ${CURDIR}/Makefile.ntscu clean
+	$(MAKE) -f ${CURDIR}/Makefile.v200.ntscu install
+	$(MAKE) -f ${CURDIR}/Makefile.v200.ntscu clean
 	$(MAKE) -f ${CURDIR}/Makefile.pal install
 	$(MAKE) -f ${CURDIR}/Makefile.pal clean
 	$(MAKE) -f ${CURDIR}/Makefile.ntscj install
