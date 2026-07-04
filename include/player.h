@@ -193,7 +193,7 @@ typedef struct Player { // 0x2540
 /* 0x24d0 */ char unk_24d0[0x18];
 /* 0x24f8 */ u16 timer_24f8;
 /* 0x24fa */ u16 timer_24fa;
-/* 0x24d0 */ char unk_24d0[0x68];
+/* 0x24e8 */ char unk_24e8[0x50];
 /* 0x2538 */ int forceGadgetSwitch;
 /* 0x253c */ int unk_253c;
 } Player;

@@ -69,38 +69,38 @@ __LocalGetAddress:
 	bne $v0, $v1, __LocalGetAddress_exit;
 	li $v0, 0;
 
-	// if in menus then return lobby address
-	lw $v0, GAME_MAP_ID;
-  li $v1, 39;
-	beq $v0, $v1, __LocalGetAddress_exit;
-	lw $v0, 0($a0)
-
 	// if not in game then no address
 	lw $v0, GAME_ACTIVE;
 	beq $v0, $zero, __LocalGetAddress_exit;
-	nop;
-
-	// otherwise in game
-	// return address by map
-	lw $v0, GAME_MAP_ID;
-	
-	// map local map ids (50+) to real map ids (40+)
-	addiu $v1, $v0, -10;
-	slti $s0, $v0, 50;
-	movz $v0, $v1, $s0;
-
-	// return 0 if map is not between 40 and 50
-	addiu $v1, $v0, -40
-	sltiu $v0, $v1, 10
-	beqzl $v0, __LocalGetAddress_exit;
 	move $v0, $zero;
 
-	// load offset into VariableAddress struct by map id
-	sll $v1, $v1, 2; // multiply map id [0,9] by 4
-	addiu $v0, $v1, 4; // offset by 4 to skip lobby address
+	// Return address by RAC2 level id.
+	// VariableAddress_t order is: 0..20, 22..26, then Museum (30).
+	lw $v0, GAME_MAP_ID;
+	li $v1, 30;
+	beq $v0, $v1, __LocalGetAddress_museum;
+	nop;
 
-	// load address from struct
-	addu $a0, $v0;
+	// valid level ids 0..20 map directly to table index 0..20
+	sltiu $v1, $v0, 21;
+	bne $v1, $zero, __LocalGetAddress_load;
+	move $v1, $v0;
+
+	// valid level ids 22..26 map to table index 21..25
+	addiu $v1, $v0, -22;
+	sltiu $v0, $v1, 5;
+	beqzl $v0, __LocalGetAddress_exit;
+	move $v0, $zero;
+	addiu $v1, $v1, 21;
+	b __LocalGetAddress_load;
+	nop;
+
+__LocalGetAddress_museum:
+	li $v1, 26;
+
+__LocalGetAddress_load:
+	sll $v1, $v1, 2;
+	addu $a0, $v1;
 	lw $v0, 0($a0);
 
 	// return to calling function
@@ -126,38 +126,38 @@ GetAddress:
 	bne $v0, $v1, GetAddress_exit;
 	li $v0, 0;
 
-	// if in menus then return lobby address
-	lw $v0, GAME_MAP_ID;
-  li $v1, 39;
-	beq $v0, $v1, GetAddress_exit;
-	lw $v0, 0($a0)
-
 	// if not in game then no address
 	lw $v0, GAME_ACTIVE;
 	beq $v0, $zero, GetAddress_exit;
-	nop;
-
-	// otherwise in game
-	// return address by map
-	lw $v0, GAME_MAP_ID;
-	
-	// map local map ids (50+) to real map ids (40+)
-	addiu $v1, $v0, -10;
-	slti $t0, $v0, 50;
-	movz $v0, $v1, $t0;
-
-	// return 0 if map is not between 40 and 50
-	addiu $v1, $v0, -40
-	sltiu $v0, $v1, 10
-	beqzl $v0, GetAddress_exit;
 	move $v0, $zero;
 
-	// load offset into VariableAddress struct by map id
-	sll $v1, $v1, 2; // multiply map id [0,9] by 4
-	addiu $v0, $v1, 4; // offset by 4 to skip lobby address
+	// Return address by RAC2 level id.
+	// VariableAddress_t order is: 0..20, 22..26, then Museum (30).
+	lw $v0, GAME_MAP_ID;
+	li $v1, 30;
+	beq $v0, $v1, GetAddress_museum;
+	nop;
 
-	// load address from struct
-	addu $a0, $v0;
+	// valid level ids 0..20 map directly to table index 0..20
+	sltiu $v1, $v0, 21;
+	bne $v1, $zero, GetAddress_load;
+	move $v1, $v0;
+
+	// valid level ids 22..26 map to table index 21..25
+	addiu $v1, $v0, -22;
+	sltiu $v0, $v1, 5;
+	beqzl $v0, GetAddress_exit;
+	move $v0, $zero;
+	addiu $v1, $v1, 21;
+	b GetAddress_load;
+	nop;
+
+GetAddress_museum:
+	li $v1, 26;
+
+GetAddress_load:
+	sll $v1, $v1, 2;
+	addu $a0, $v1;
 	lw $v0, 0($a0);
 
 	// return to calling function
@@ -183,38 +183,38 @@ GetAddressImmediate:
 	//bne $v0, $v1, GetAddressImmediate_exit;
 	//li $v0, 0;
 
-	// if in menus then return lobby address
-	lw $v0, GAME_MAP_ID;
-  li $v1, 39;
-	beq $v0, $v1, GetAddressImmediate_exit;
-	lw $v0, 0($a0)
-
 	// if not in game then no address
 	//lw $v0, GAME_ACTIVE;
 	//beq $v0, $zero, GetAddressImmediate_exit;
 	//nop;
 
-	// otherwise in game
-	// return address by map
+	// Return address by RAC2 level id.
+	// VariableAddress_t order is: 0..20, 22..26, then Museum (30).
 	lw $v0, GAME_MAP_ID;
-	
-	// map local map ids (50+) to real map ids (40+)
-	addiu $v1, $v0, -10;
-	slti $t0, $v0, 50;
-	movz $v0, $v1, $t0;
+	li $v1, 30;
+	beq $v0, $v1, GetAddressImmediate_museum;
+	nop;
 
-	// return 0 if map is not between 40 and 50
-	addiu $v1, $v0, -40
-	sltiu $v0, $v1, 10
+	// valid level ids 0..20 map directly to table index 0..20
+	sltiu $v1, $v0, 21;
+	bne $v1, $zero, GetAddressImmediate_load;
+	move $v1, $v0;
+
+	// valid level ids 22..26 map to table index 21..25
+	addiu $v1, $v0, -22;
+	sltiu $v0, $v1, 5;
 	beqzl $v0, GetAddressImmediate_exit;
 	move $v0, $zero;
+	addiu $v1, $v1, 21;
+	b GetAddressImmediate_load;
+	nop;
 
-	// load offset into VariableAddress struct by map id
-	sll $v1, $v1, 2; // multiply map id [0,9] by 4
-	addiu $v0, $v1, 4; // offset by 4 to skip lobby address
+GetAddressImmediate_museum:
+	li $v1, 26;
 
-	// load address from struct
-	addu $a0, $v0;
+GetAddressImmediate_load:
+	sll $v1, $v1, 2;
+	addu $a0, $v1;
 	lw $v0, 0($a0);
 
 	// return to calling function
