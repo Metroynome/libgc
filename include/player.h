@@ -9,6 +9,7 @@
 #include "moby.h"
 
 #define PLAYER_1_STRUCT		((Player*)0x00189e20)
+#define PLAYER_STRUCT		PLAYER_1_STRUCT
 
 typedef enum PlayerState {
 	PLAYER_STATE_IDLE = 0,
@@ -165,6 +166,48 @@ typedef enum PlayerType {
 	PLAYER_TYPE_CNT = 38
 } PlayerType;
 
+typedef struct HeroMove {
+/* 0x00 */ VECTOR behavior;
+/* 0x10 */ VECTOR external;
+/* 0x20 */ VECTOR actual;
+/* 0x30 */ VECTOR actualFromBehavior;
+/* 0x40 */ VECTOR actualFromBehaviorGrav;
+/* 0x50 */ VECTOR actualFromBehavior2D;
+/* 0x60 */ VECTOR actualFromExternal;
+/* 0x70 */ VECTOR taper;
+/* 0x80 */ float speed;
+/* 0x84 */ float speed2D;
+/* 0x88 */ float forwardSpeed;
+/* 0x8c */ float ascent;
+/* 0x90 */ float zSpeed;
+/* 0x94 */ float externalSpeed;
+/* 0x98 */ int pad[2];
+} HeroMove;
+
+typedef struct HeroTurn {
+/* 0x00 */ float ideal;
+/* 0x04 */ float speed;
+/* 0x08 */ float accel;
+/* 0x0c */ float diff;
+} HeroTurn;
+
+typedef struct HeroMotionControl {
+/* 0x00 */ float targetSpeed;
+/* 0x04 */ float currentSpeed;
+/* 0x08 */ int stateFrame;
+/* 0x0c */ int unk_0c;
+/* 0x10 */ int transTimerA;
+/* 0x14 */ int transTimerB;
+/* 0x18 */ int unk_18;
+/* 0x1c */ int unk_1c;
+/* 0x20 */ int unk_20;
+/* 0x24 */ int unk_24;
+/* 0x28 */ int unk_28;
+/* 0x2c */ int unk_2c;
+/* 0x30 */ int unk_30;
+/* 0x34 */ int unk_34;
+} HeroMotionControl;
+
 /* start:
 Aranos: 0x00189e20
 Museum: 0x00189e20
@@ -174,28 +217,51 @@ typedef struct Player { // 0x2540
 /* 0x0040 */ MATRIX invMtx;
 /* 0x0080 */ VECTOR pos;
 /* 0x0090 */ VECTOR rot;
-/* 0x00a0 */ char unk_00a0[0xb98];
-/* 0x0c18 */ Moby *pMoby;
-/* 0x0c1c */ char unk_0c1c[0x1674];
-/* 0x2290 */ Moby *unk_Moby_2290;
+/* 0x00a0 */ char unk_00a0[0x40];
+/* 0x00e0 */ HeroMove move;
+/* 0x0180 */ HeroTurn turn;
+/* 0x0190 */ HeroMotionControl motion;
+/* 0x01c8 */ char unk_01c8[0xa50];
+/* 0x0c18 */ Moby *unk_Moby_0c18;
+/* 0x0c1c */ char unk_0c1c[0x1394];
+/* 0x1fb0 */ VECTOR sitckInput;
+/* 0x1fc0 */ char unk_1fc0[0x2d0];
+/* 0x2290 */ Moby *pMoby;
 /* 0x2294 */ int state;
-/* 0x2298 */ int prevState;
-/* 0x229c */ int prevprevState;
-/* 0x22a0 */ int state_4;
-/* 0x22a4 */ int state_5;
-/* 0x22a8 */ int state_6;
-/* 0x22ac */ int state_7;
-/* 0x22b0 */ int state_8;
-/* 0x22b4 */ char unk_22b4[0xd];
+/* 0x2298 */ int stateTimer;
+/* 0x229c */ int stateType;
+/* 0x22a0 */ int previousState;
+/* 0x22a4 */ int previousType;
+/* 0x22a8 */ int previousStateTimer;
+/* 0x22ac */ int previousPreviousState;
+/* 0x22b0 */ int previousPreviousType;
+/* 0x22b4 */ char subState;
+/* 0x22b5 */ char unk_22b5;
+/* 0x22b6 */ char unk_22b6;
+/* 0x22b7 */ char unk_22b7;
+/* 0x22b8 */ char stateControlLock;
+/* 0x22b9 */ char unk_22b9;
+/* 0x22ba */ char unk_22ba;
+/* 0x22bb */ char unk_22bb;
+/* 0x22bc */ char movementControlLock;
+/* 0x22bd */ char cutsceneControlLock;
+/* 0x22be */ char unk_22be;
+/* 0x22bf */ char unk_22bf;
+/* 0x22c0 */ char unk_22c0;
 /* 0x22c1 */ bool resetLevel;
-/* 0x22c2 */ char unk_22c2[0x20a];
+/* 0x22c2 */ char unk_22c2[0x1f6];
+/* 0x24b8 */ float inputMagnitude;
+/* 0x24bc */ char unk_24bc[0x10];
 /* 0x24cc */ int hitpoints;
-/* 0x24d0 */ char unk_24d0[0x18];
+/* 0x24d0 */ char unk_24d0[0x28];
 /* 0x24f8 */ u16 timer_24f8;
 /* 0x24fa */ u16 timer_24fa;
-/* 0x24e8 */ char unk_24e8[0x50];
+/* 0x24fc */ char unk_24fc[0x3c];
 /* 0x2538 */ int forceGadgetSwitch;
 /* 0x253c */ int unk_253c;
 } Player;
+typedef Player Hero;
+
+int playerCanControl(void);
 
 #endif
