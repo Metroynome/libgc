@@ -1,4 +1,4 @@
-EE_LIB_NAME = libgcntscuv200.a
+EE_LIB_NAME = librac2ntscuv200.a
 EE_DEFS = -DGC_NTSCU -DRAC2_NTSCU -DGC_V200 -DRAC2_V200 -DGC_NTSCU_V200 -DRAC2_NTSCU_V200
 
 include ${CURDIR}/Makefile.defs

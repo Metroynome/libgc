@@ -6,8 +6,8 @@
  * AUTHOR :			
  */
 
-#ifndef _LIBGC_INTEROP_H_
-#define _LIBGC_INTEROP_H_
+#ifndef _LIBRAC2_INTEROP_H_
+#define _LIBRAC2_INTEROP_H_
 
 #include <tamtypes.h>
 
@@ -44,4 +44,4 @@ typedef struct VariableAddress {
 u32 GetAddress(VariableAddress_t* address);
 u32 GetAddressImmediate(VariableAddress_t* address);
 
-#endif // _LIBGC_INTEROP_H_
+#endif // _LIBRAC2_INTEROP_H_

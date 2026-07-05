@@ -1,4 +1,4 @@
-#include "gc.h"
+#include "rac2.h"
 #include "player.h"
 
 // 
@@ -6,7 +6,7 @@ extern void padUpdate(void);
 extern void playerPadUpdate(void);
 
 /*
- * NAME :		gcPreUpdate
+ * NAME :		rac2PreUpdate
  * DESCRIPTION :
  * 			Must be called at the beginning of each tick.
  * NOTES :
@@ -14,13 +14,13 @@ extern void playerPadUpdate(void);
  * RETURN :
  * AUTHOR :
  */
-void gcPreUpdate(void)
+void rac2PreUpdate(void)
 {
 		
 }
 
 /*
- * NAME :		gcPostUpdate
+ * NAME :		rac2PostUpdate
  * DESCRIPTION :
  * 			Must be called at the end of each tick.
  * NOTES :
@@ -28,7 +28,7 @@ void gcPreUpdate(void)
  * RETURN :
  * AUTHOR :
  */
-void gcPostUpdate(void)
+void rac2PostUpdate(void)
 {
 	padUpdate();
 	playerPadUpdate();

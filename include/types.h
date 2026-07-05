@@ -1,5 +1,5 @@
-#ifndef _LIBGC_TYPES_H_
-#define _LIBGC_TYPES_H_
+#ifndef _LIBRAC2_TYPES_H_
+#define _LIBRAC2_TYPES_H_
 
 #include <tamtypes.h>
 
@@ -164,10 +164,6 @@
 #define RAC2_NTSCJ_V200
 #endif
 
-
-#define __LIBGC_GETTER__    inline
-#define __LIBGC_SETTER__    inline
-#define __LIBGC_INLINE__    inline
 
 #define __LIBRAC2_GETTER__    inline
 #define __LIBRAC2_SETTER__    inline

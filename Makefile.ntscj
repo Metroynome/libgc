@@ -1,4 +1,4 @@
-EE_LIB_NAME = libgcntscj.a
+EE_LIB_NAME = librac2ntscj.a
 EE_DEFS = -DGC_NTSCJ -DRAC2_NTSCJ
 
 include ${CURDIR}/Makefile.defs

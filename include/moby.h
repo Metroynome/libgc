@@ -1,5 +1,5 @@
-#ifndef _LIBGC_MOBY_H_
-#define _LIBGC_MOBY_H_
+#ifndef _LIBRAC2_MOBY_H_
+#define _LIBRAC2_MOBY_H_
 
 #include <tamtypes.h>
 #include "types.h"

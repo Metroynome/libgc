@@ -16,8 +16,8 @@
 # Review ps2sdk README & LICENSE files for further details.
 */
 
-#ifndef _LIBGC_PAD_H
-#define _LIBGC_PAD_H
+#ifndef _LIBRAC2_PAD_H
+#define _LIBRAC2_PAD_H
 
 #include <tamtypes.h>
 #include "types.h"
@@ -181,7 +181,7 @@ typedef struct PadHistory {
  * RETURN :
  * AUTHOR :			
  */
-__LIBGC_GETTER__ int padGetButton(int port, u16 buttonMask);
+__LIBRAC2_GETTER__ int padGetButton(int port, u16 buttonMask);
 
 /*
  * NAME :		padGetButtonDown
@@ -195,7 +195,7 @@ __LIBGC_GETTER__ int padGetButton(int port, u16 buttonMask);
  * RETURN :
  * AUTHOR :			
  */
-__LIBGC_GETTER__ int padGetButtonDown(int port, u16 buttonMask);
+__LIBRAC2_GETTER__ int padGetButtonDown(int port, u16 buttonMask);
 
 /*
  * NAME :		padGetButtonUp
@@ -209,7 +209,7 @@ __LIBGC_GETTER__ int padGetButtonDown(int port, u16 buttonMask);
  * RETURN :
  * AUTHOR :			
  */
-__LIBGC_GETTER__ int padGetButtonUp(int port, u16 buttonMask);
+__LIBRAC2_GETTER__ int padGetButtonUp(int port, u16 buttonMask);
 
 /*
  * NAME :		padResetInput
@@ -221,6 +221,6 @@ __LIBGC_GETTER__ int padGetButtonUp(int port, u16 buttonMask);
  * RETURN :
  * AUTHOR :			
  */
-__LIBGC_SETTER__ void padResetInput(int port);
+__LIBRAC2_SETTER__ void padResetInput(int port);
 
-#endif // _LIBGC_PAD_H
+#endif // _LIBRAC2_PAD_H

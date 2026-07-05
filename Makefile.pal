@@ -1,4 +1,4 @@
-EE_LIB_NAME = libgcpal.a
+EE_LIB_NAME = librac2pal.a
 EE_DEFS = -DGC_PAL -DRAC2_PAL
 
 include ${CURDIR}/Makefile.defs
