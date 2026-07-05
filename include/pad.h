@@ -28,6 +28,9 @@
 #elif RAC2_NTSCJ
 #define P1_PAD                              ((PAD*)0x00138180)
 #define P2_PAD                              ((PAD*)0x00138500)
+#elif RAC2_NTSCU_V200
+#define P1_PAD                              ((PAD*)0x00138180)
+#define P2_PAD                              ((PAD*)0x00138500)
 #else
 #define P1_PAD                              ((PAD*)0x00138180)
 #define P2_PAD                              ((PAD*)0x00138500)
@@ -79,7 +82,7 @@ typedef struct PAD { // 0x5c0
 				unsigned char r1_p;
 				unsigned char l2_p;
 				unsigned char r2_p;
-			} buffer;
+			};
 	};
 	/* 0x100 */ float analog[16];
 	/* 0x140 */ float hudAnalog[16];

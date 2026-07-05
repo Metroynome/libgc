@@ -6,7 +6,11 @@
 #include "math3d.h"
 
 
-#define RANDOM_SEED ((int*)0x00240ce0)
+#ifdef RAC2_PAL
+#define RANDOM_SEED ((int*)0x00133c60)
+#else
+#define RANDOM_SEED ((int*)0x00133be0)
+#endif
 
 /*
  * NAME :		randSeed

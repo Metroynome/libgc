@@ -12,6 +12,7 @@
 #include <tamtypes.h>
 
 typedef struct VariableAddress {
+	u32 MainMenu;
 	u32 Aranos1;
 	u32 Oozla;
 	u32 Maktar;
@@ -43,5 +44,6 @@ typedef struct VariableAddress {
 
 u32 GetAddress(VariableAddress_t* address);
 u32 GetAddressImmediate(VariableAddress_t* address);
+int IsMainMenu(void);
 
 #endif // _LIBRAC2_INTEROP_H_
