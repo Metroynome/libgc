@@ -212,7 +212,7 @@ typedef struct HeroMotionControl {
 Aranos: 0x00189e20
 Museum: 0x00189e20
 */
-typedef struct Player { // 0x2540
+typedef struct Hero { // 0x2540
 /* 0x0000 */ MATRIX mtx;
 /* 0x0040 */ MATRIX invMtx;
 /* 0x0080 */ VECTOR pos;
@@ -259,8 +259,8 @@ typedef struct Player { // 0x2540
 /* 0x24fc */ char unk_24fc[0x3c];
 /* 0x2538 */ int forceGadgetSwitch;
 /* 0x253c */ int unk_253c;
-} Player;
-typedef Player Hero;
+} Hero;
+typedef Hero Player;
 
 int playerCanControl(void);
 
